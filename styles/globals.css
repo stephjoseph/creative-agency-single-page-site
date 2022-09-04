@@ -73,4 +73,40 @@
       transform: scaleY(-1);
     }
   }
+
+  @media (min-width: 1280px) {
+    header {
+      background: url('/assets/desktop/image-hero.jpg') no-repeat top right;
+      background-size: contain;
+    }
+
+    .strategic::before {
+      width: 135px;
+      height: 61px;
+      position: absolute;
+      left: -67.5px;
+      top: 234px;
+    }
+
+    .slider::after {
+      width: 134px;
+      height: 60px;
+      position: absolute;
+      right: -67px;
+      top: 186px;
+      transform: scaleY(1);
+    }
+
+    .cta::before {
+      content: '';
+      background: url('/assets/desktop/bg-pattern-wave-red.svg') no-repeat top
+        center;
+      background-size: contain;
+      width: 134px;
+      height: 60px;
+      position: absolute;
+      left: -67px;
+      top: 154px;
+    }
+  }
 }

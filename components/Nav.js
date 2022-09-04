@@ -11,7 +11,7 @@ const Nav = () => {
 
   return (
     <nav className='relative flex w-full flex-col items-center py-10 md:py-0'>
-      <div className='flex w-[86.67%] items-center justify-between md:w-full md:pl-10'>
+      <div className='flex w-[86.67%] items-center justify-between md:w-full md:pl-10 xl:pl-[10.313rem]'>
         <Link href='/'>
           <a className='h-[1.875rem]'>
             <Image
@@ -41,9 +41,9 @@ const Nav = () => {
             />
           </div>
         </button>
-        <div className='hidden w-[60.16%] flex-col items-center bg-red py-14 md:flex'>
-          <div className='flex w-[83.33%] items-center justify-between'>
-            <ul className='font-body flex w-[52.05%] items-center justify-between gap-[1.25rem] text-[0.938rem] leading-[2rem] text-white lg:text-xl'>
+        <div className='hidden w-[60.16%] flex-col items-center bg-red py-14 md:flex xl:w-[55.29%] xl:items-end  xl:pr-[10.313rem]'>
+          <div className='flex w-[83.33%] items-center justify-between xl:w-[87.22%] xl:gap-12'>
+            <ul className='font-body flex w-[52.05%] items-center justify-between gap-[1.25rem] text-[0.938rem] leading-[2rem] text-white xl:gap-[2rem] xl:text-base'>
               <li>
                 <Link href=''>
                   <a>About</a>
@@ -61,7 +61,7 @@ const Nav = () => {
               </li>
             </ul>
             <Link href='/'>
-              <a className='btn-2 py-6 px-[1.25rem] text-base leading-[1.25rem]'>
+              <a className='btn-2 py-6 px-[1.25rem] text-base leading-[1.25rem] xl:w-[12.438rem] xl:text-center'>
                 Schedule a Call
               </a>
             </Link>
