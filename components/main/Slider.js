@@ -34,14 +34,9 @@ const slides = [
   },
 ];
 
-const Slider = () => {
+const Slider = ({ width }) => {
   const [slideIndex, setSlideIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState('');
-  const [width, setWidth] = useState(0);
-
-  const updateSize = () => {
-    setWidth(window.innerWidth);
-  };
 
   const handlePrev = () => {
     slideIndex === 0
@@ -59,16 +54,10 @@ const Slider = () => {
     setSlideDirection('right');
   };
 
-  useEffect(() => {
-    console.log(width);
-    setWidth(window.innerWidth);
-    window.onresize = updateSize;
-  }, [width]);
-
   return (
-    <section className='flex w-full flex-col'>
-      <div className='relative w-full bg-red'>
-        <div className='relative h-[107.73vw] w-full'>
+    <section className='flex w-full flex-col md:relative md:flex-row-reverse'>
+      <div className='relative w-full bg-red md:-ml-[3.75rem] md:w-[57.03%]'>
+        <div className='relative h-[107.73vw] w-full md:h-[29.5rem] '>
           <Image
             layout='fill'
             objectFit='cover'
@@ -93,8 +82,8 @@ const Slider = () => {
           </div>
         </div>
       </div>
-      <div className='flex w-full flex-col items-center bg-bg-black py-16'>
-        <div className='flex w-[87.2%] flex-col gap-6'>
+      <div className='slider z-10 flex w-full flex-col items-center bg-bg-black py-16 md:relative md:h-[22rem] md:w-[50.78%] md:py-[6.25rem]'>
+        <div className='flex w-[87.2%] flex-col gap-6 md:gap-8'>
           <h2 className='font-h2 w-full text-[2rem] leading-[2.5rem] text-white'>
             {slides[slideIndex].heading}
           </h2>

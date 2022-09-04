@@ -1,21 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Strategic = () => {
+const Strategic = ({ width }) => {
   return (
-    <section className='flex w-full flex-col items-center'>
-      <div className='flex w-full flex-col items-center'>
-        <div className='relative h-[53.33vw] w-full'>
+    <section className='flex w-full flex-col items-center '>
+      <div className='flex w-full flex-col items-center  md:flex-row md:items-start'>
+        <div className='relative h-[53.33vw] w-full md:h-[41.125rem] md:w-[49.21%]'>
           <Image
             layout='fill'
             objectFit='cover'
-            src='/assets/mobile/image-strategic.jpg'
+            src={
+              width >= 768 && width < 1280
+                ? '/assets/tablet/image-strategic.jpg'
+                : width >= 1280
+                ? '/assets/desktop/image-strategic.jpg'
+                : '/assets/mobile/image-strategic.jpg'
+            }
             alt='logo'
           />
         </div>
-        <div className='strategic relative flex w-full flex-col items-center bg-bg-black py-[4.5rem]'>
-          <div className='flex w-[87.2%] flex-col gap-10'>
-            <div className='flex w-[87.2%] flex-col gap-6'>
+        <div className='strategic relative flex w-full flex-col items-center bg-bg-black py-[4.5rem] md:w-[50.78%] md:items-start md:pb-[15rem] md:pl-[4.313rem] md:pt-[7.5rem] '>
+          <div className='flex w-[87.2%] flex-col gap-10 md:w-[87.54%] md:gap-8'>
+            <div className='flex w-[87.2%] flex-col gap-6 md:gap-8'>
               <h2 className='font-h2 text-[2rem] leading-[2.5rem] text-white'>
                 <span className='text-red'>Design</span> is strategic.
               </h2>

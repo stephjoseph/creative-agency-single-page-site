@@ -10,8 +10,8 @@ const Nav = () => {
   };
 
   return (
-    <nav className='relative flex w-full flex-col items-center py-10'>
-      <div className='flex w-[86.67%] items-center justify-between'>
+    <nav className='relative flex w-full flex-col items-center py-10 md:py-0'>
+      <div className='flex w-[86.67%] items-center justify-between md:w-full md:pl-10'>
         <Link href='/'>
           <a className='h-[1.875rem]'>
             <Image
@@ -23,7 +23,7 @@ const Nav = () => {
           </a>
         </Link>
         <button
-          className='-mr-1 flex h-[1.875rem] w-[1.875rem] items-center justify-center'
+          className='-mr-1 flex h-[1.875rem] w-[1.875rem] items-center justify-center md:hidden'
           type='button'
           aria-label='menu button'
           onClick={toggleActive}
@@ -41,11 +41,37 @@ const Nav = () => {
             />
           </div>
         </button>
+        <div className='hidden w-[60.16%] flex-col items-center bg-red py-14 md:flex'>
+          <div className='flex w-[83.33%] items-center justify-between'>
+            <ul className='font-body flex w-[52.05%] items-center justify-between gap-[1.25rem] text-[0.938rem] leading-[2rem] text-white lg:text-xl'>
+              <li>
+                <Link href=''>
+                  <a>About</a>
+                </Link>
+              </li>
+              <li>
+                <Link href=''>
+                  <a>Service</a>
+                </Link>
+              </li>
+              <li>
+                <Link href=''>
+                  <a>Projects</a>
+                </Link>
+              </li>
+            </ul>
+            <Link href='/'>
+              <a className='btn-2 py-6 px-[1.25rem] text-base leading-[1.25rem]'>
+                Schedule a Call
+              </a>
+            </Link>
+          </div>
+        </div>
       </div>
       <div
         className={`${
           !isActive && 'pointer-events-none opacity-0'
-        } absolute top-[100%] right-6 flex w-[67.2%] flex-col items-center bg-bg-black py-8 transition-opacity duration-300 ease-in`}
+        } absolute top-[100%] right-6 flex w-[67.2%] flex-col items-center bg-bg-black py-8 transition-opacity duration-300 ease-in md:hidden`}
       >
         <div className='flex w-[78.96%] flex-col items-center gap-6'>
           <ul className='font-body flex w-full flex-col items-center gap-6 text-center text-white'>

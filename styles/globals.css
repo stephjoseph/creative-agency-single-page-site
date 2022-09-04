@@ -25,7 +25,7 @@
   }
 
   .btn-2 {
-    @apply flex items-center justify-center bg-bg-black font-['Commissioner'] text-[1.125rem] leading-[1.375rem] tracking-normal text-white hover:bg-[#434356] active:bg-[#434356];
+    @apply flex items-center justify-center bg-bg-black font-['Commissioner'] text-[1.125rem] font-extrabold leading-[1.375rem] tracking-normal text-white hover:bg-[#434356] active:bg-[#434356];
   }
 
   .btn-3 {
@@ -47,5 +47,30 @@
     position: absolute;
     left: 24px;
     top: -15px;
+  }
+
+  @media (min-width: 768px) {
+    header {
+      background: url('/assets/tablet/image-hero.jpg') no-repeat top right;
+      background-size: contain;
+    }
+
+    .strategic::before {
+      left: -32px;
+      top: 145px;
+    }
+
+    .slider::after {
+      content: '';
+      background: url('/assets/desktop/bg-pattern-wavy-white.svg') no-repeat top
+        center;
+      background-size: contain;
+      width: 63px;
+      height: 29px;
+      position: absolute;
+      right: -31px;
+      top: 126px;
+      transform: scaleY(-1);
+    }
   }
 }
