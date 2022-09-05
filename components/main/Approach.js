@@ -1,4 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useRef, useEffect } from 'react';
+import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 const steps = [
   {
@@ -22,9 +25,59 @@ const steps = [
 ];
 
 const Approach = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  const stepsRef = useRef([]);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      headingRef.current,
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: 'top bottom',
+          toggleActions: 'play none none none',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'easeIn',
+      }
+    );
+
+    gsap.fromTo(
+      stepsRef.current,
+      {
+        x: 50,
+        opacity: 0,
+      },
+      {
+        scrollTrigger: {
+          trigger: stepsRef.current[0],
+          start: 'top bottom',
+          toggleActions: 'play none none none',
+        },
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'easeIn',
+        stagger: {
+          each: 0.3,
+        },
+      }
+    );
+  }, []);
+
   return (
     <section className='z-10 flex w-full flex-col items-center md:-mt-[7.5rem] md:flex-row md:items-start md:gap-[0.625rem] xl:-mt-[12.5rem] xl:gap-0'>
-      <h2 className='font-h2 xl:font-h2 z-10 ml-auto mt-[15.375rem] hidden w-[36.59%] text-[2rem] leading-[2.5rem] md:block xl:mt-[25rem] xl:-mr-[10rem] xl:w-[37.5%]'>
+      <h2
+        ref={headingRef}
+        className='font-h2 xl:font-h2 z-10 ml-auto mt-[15.375rem] hidden w-[36.59%] text-[2rem] leading-[2.5rem] md:block xl:mt-[25rem] xl:-mr-[10rem] xl:w-[37.5%]'
+      >
         Our approach for creating a winning brand
       </h2>
       <div className='flex flex-col items-center bg-red py-24 md:w-[57.03%] md:py-[7.5rem] xl:w-[62.15%] xl:items-start xl:py-[12.5rem] xl:pl-[17.813rem]'>
@@ -33,8 +86,11 @@ const Approach = () => {
             Our approach for creating a winning brand
           </h2>
           <div className='flex w-full flex-col gap-10 xl:gap-14'>
-            {steps.map((step) => (
+            {steps.map((step, i) => (
               <div
+                ref={(element) => {
+                  stepsRef.current[i] = element;
+                }}
                 className='relative flex w-full items-end justify-end pl-4 pt-[2.75rem] xl:items-start xl:justify-start xl:pl-[3.688rem] xl:pt-[2.75rem]'
                 key={step.id}
               >
