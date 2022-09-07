@@ -122,7 +122,12 @@ const Slider = ({ width }) => {
             {slides[slideIndex].heading}
           </h2>
           <div className='flex w-24 items-center justify-between'>
-            <button className='group' type='button' onClick={handlePrev}>
+            <button
+              className='group'
+              type='button'
+              onClick={handlePrev}
+              aria-label='previous'
+            >
               <svg width='40' height='40' xmlns='http://www.w3.org/2000/svg'>
                 <g
                   className='group-hover:stroke-[#FF9393] group-active:stroke-[#FF9393]'
@@ -136,7 +141,12 @@ const Slider = ({ width }) => {
                 </g>
               </svg>
             </button>
-            <button className='group' type='button' onClick={handleNext}>
+            <button
+              className='group'
+              type='button'
+              onClick={handleNext}
+              aria-label='next'
+            >
               <svg width='40' height='40' xmlns='http://www.w3.org/2000/svg'>
                 <g
                   className='group-hover:stroke-[#FF9393] group-active:stroke-[#FF9393]'
